@@ -2671,7 +2671,7 @@ char displayInventory(unsigned short categoryMask,
 
     magicDetected = false;
     for (theItem = packItems->nextItem; theItem != NULL; theItem = theItem->nextItem) {
-        if (displayMagicCharForItem(theItem) && (theItem->flags & ITEM_MAGIC_DETECTED)) {
+        if ((theItem->category & POTION) || (displayMagicCharForItem(theItem) && (theItem->flags & ITEM_MAGIC_DETECTED))) {
             magicDetected = true;
         }
     }
@@ -2740,7 +2740,7 @@ char displayInventory(unsigned short categoryMask,
         itemName(theItem, buf, true, true, (buttons[i].flags & B_HOVER_ENABLED) ? &white : &gray);
         upperCase(buf);
 
-        if ((theItem->flags & ITEM_MAGIC_DETECTED)
+        if ((theItem->category & POTION) || ((theItem->flags & ITEM_MAGIC_DETECTED)
             && !(theItem->category & AMULET)) { // Won't include food, keys, lumenstones or amulet.
 
             buttons[i].symbol[0] = (itemMagicChar(theItem) ? itemMagicChar(theItem) : '-');
