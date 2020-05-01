@@ -72,7 +72,8 @@ just like for the Linux version.
 1. Navigate to the Brogue CE directory (the one containing this file) and run:
 
     ```
-    make bin/brogue
+    make MAC_APP=YES Brogue.app
+    cd Brogue.app/Contents && dylibbundler -cd -b -x MacOS/brogue
     ```
 
 Linux
