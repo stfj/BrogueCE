@@ -64,7 +64,7 @@ just like for the Linux version.
 2. Install the dependencies:
 
     ```
-    brew install sdl2 sdl2_image
+    brew install sdl2 sdl2_image dylibbundler
     ```
 
 ### Building
